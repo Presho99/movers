@@ -1,9 +1,13 @@
-import React from 'react'
+// src/components/Card.js
+import React from 'react';
 
-function Card() {
+function Card({ title, description }) {
   return (
-    <div>Card</div>
-  )
+    <div className="card">
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
+  );
 }
 
-export default Card
+export default Card;
