@@ -104,7 +104,7 @@ function BookMove() {
         {/* Right Side: Form Content */}
         <div className="card-form">
           {/* Progress Bar */}
-          <div className="progress-bar" style={{ marginBottom: '20px' }}>
+          <div className="progress-bar" style={{ marginBottom: '-20px' }}>
             <div
               className="progress"
               style={{
@@ -156,11 +156,12 @@ function BookMove() {
             <div className="step">
               <h4>Step 2: Select Your Inventory</h4>
               {inventoryOptions.map((item) => (
-                <label key={item}>
+                <label key={item} className='invent'>
                   <input
                     type="checkbox"
                     checked={selectedInventory.includes(item)}
                     onChange={() => handleInventorySelect(item)}
+                    className='check-2'
                   />
                   {item}
                 </label>
@@ -233,7 +234,19 @@ function BookMove() {
 
       {/* Checkout Modal */}
       {showModal && (
-        <Payment
+        <div className='modal-overlay'>
+                            {/* Close Icon */}
+      <button
+        className="close-icon"
+        onClick={() => setShowModal(false)} // Close the modal when clicked
+        aria-label="Close"
+      >
+        &times; {/* "X" icon as a special character */}
+      </button>
+            <div className='modal-content'>
+
+
+            <Payment
           currentLocation={currentLocation}
           newLocation={newLocation}
           selectedInventory={selectedInventory}
@@ -247,6 +260,9 @@ function BookMove() {
             }, 2000);
           }}
         />
+            </div>
+        </div>
+
       )}
     </div>
   );
