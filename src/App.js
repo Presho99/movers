@@ -7,6 +7,7 @@ import LandingPage from './pages/LandingPage';
 import Home from './pages/Home';
 import BookMove from './pages/BookMove';
 import MyBooking from './pages/MyBookings';
+import Profile from './pages/Profile';
 
 function App() {
   const { isAuthenticated } = useContext(AuthContext);
@@ -39,6 +40,14 @@ function App() {
             isAuthenticated ? <MyBooking /> : <Navigate to="/" />
           }
         />
+
+<Route
+          path="/profile"
+          element={
+            isAuthenticated ? <Profile /> : <Navigate to="/" />
+          }
+        />
+
 
       </Routes>
     </Router>
