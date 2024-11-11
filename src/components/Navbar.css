@@ -1,11 +1,12 @@
 /* Navbar.css */
 .navbar {
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #032739; /* Dark blue background */
-    color: white;
+    padding: 10px 70px;
+     /* Dark blue background */
+    color: #39A2A5;
   }
   
   .logo {
@@ -31,9 +32,10 @@
   }
   
   .nav-list a {
-    color: white;
+    color: #032739;
     text-decoration: none;
     transition: color 0.3s;
+    font-weight: bold;
   }
   
   .nav-list a:hover {
