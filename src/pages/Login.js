@@ -1,17 +1,22 @@
 // src/pages/Login.js
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import Card from '../components/Card';
+import Button from '../components/Button';
+import { AuthContext } from '../context/AuthContext';
 
 function Login() {
+  const { setIsAuthenticated } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
     // Logic for logging in the user
     console.log('Logging in:', email);
+    setIsAuthenticated(true); // Simulate successful login
   };
 
   return (
-    <div className="login">
+    <Card>
       <h2>Login</h2>
       <input
         type="email"
@@ -25,8 +30,8 @@ function Login() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleLogin}>Login</button>
-    </div>
+      <Button onClick={handleLogin}>Login</Button>
+    </Card>
   );
 }
 

@@ -1,18 +1,20 @@
 // src/pages/Register.js
 import React, { useState } from 'react';
+import Card from '../components/Card'; // Import the Card component
 
-function Register() {
+function Register({ onRegisterSuccess }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
 
   const handleRegister = () => {
-    // Logic for registering the user
+    // Add logic for registering the user
     console.log('Registering:', name, email);
+    onRegisterSuccess(); // Notify parent of successful registration
   };
 
   return (
-    <div className="register">
+    <Card> {/* Wrap the content inside the Card */}
       <h2>Register</h2>
       <input
         type="text"
@@ -33,7 +35,7 @@ function Register() {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button onClick={handleRegister}>Register</button>
-    </div>
+    </Card>
   );
 }
 
