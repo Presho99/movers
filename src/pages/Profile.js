@@ -1,9 +1,13 @@
-import React from 'react'
+// src/pages/Profile.js
+import React from 'react';
 
 function Profile() {
   return (
-    <div>Profile</div>
-  )
+    <div className="profile">
+      <h2>Your Profile</h2>
+      <p>Manage your account details here.</p>
+    </div>
+  );
 }
 
-export default Profile
+export default Profile;
