@@ -2,16 +2,16 @@ import React, { useContext } from 'react';
 import { BookingContext } from '../context/BookingContext';
 
 function MyBooking() {
-  const { bookingDetails } = useContext(BookingContext); // Access the booking details from the context
+  const { bookingDetails } = useContext(BookingContext); 
 
-  // Check if there are booking details
+  
   const hasBookings = bookingDetails !== null;
 
   return (
     <div className="my-booking">
       <h2>My Bookings</h2>
       {hasBookings ? (
-        // If there are bookings, display them in a table
+    
         <table>
           <thead>
             <tr>
@@ -35,7 +35,7 @@ function MyBooking() {
           </tbody>
         </table>
       ) : (
-        // If no booking is found, display the default message
+        
         <p>Bookings will appear here.</p>
       )}
     </div>

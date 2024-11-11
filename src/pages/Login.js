@@ -10,9 +10,9 @@ function Login() {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Logic for logging in the user
+    
     console.log('Logging in:', email);
-    setIsAuthenticated(true); // Simulate successful login
+    setIsAuthenticated(true); 
   };
 
   return (

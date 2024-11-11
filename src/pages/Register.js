@@ -1,6 +1,6 @@
 // src/pages/Register.js
 import React, { useState } from 'react';
-import Card from '../components/Card'; // Import the Card component
+import Card from '../components/Card'; 
 
 function Register({ onRegisterSuccess }) {
   const [email, setEmail] = useState('');
@@ -8,13 +8,13 @@ function Register({ onRegisterSuccess }) {
   const [name, setName] = useState('');
 
   const handleRegister = () => {
-    // Add logic for registering the user
+    
     console.log('Registering:', name, email);
-    onRegisterSuccess(); // Notify parent of successful registration
+    onRegisterSuccess(); 
   };
 
   return (
-    <Card> {/* Wrap the content inside the Card */}
+    <Card> 
       <h2>Register</h2>
       <input
         type="text"

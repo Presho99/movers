@@ -7,7 +7,7 @@ function LandingPage() {
   const [isRegistered, setIsRegistered] = useState(false);
 
   const handleRegistrationSuccess = () => {
-    setIsRegistered(true); // Show the login form after registering
+    setIsRegistered(true); 
   };
 
   return (

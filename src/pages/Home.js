@@ -1,5 +1,5 @@
 import React from 'react';
-import './Home.css'; // Import styles for the homepage
+import './Home.css'; 
 
 const Home = () => {
   return (
@@ -71,7 +71,7 @@ const Home = () => {
         </ul>
       </section>
 
-      {/* Call to Action */}
+      
       <footer className="cta-footer">
         <button className="book-now-button">Book Now</button>
       </footer>

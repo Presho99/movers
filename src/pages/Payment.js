@@ -3,7 +3,7 @@ import './Payment.css'
 
 function Payment({ currentLocation, newLocation, selectedInventory, price, onPaymentSuccess }) {
   const handlePayment = () => {
-    // Simulate a successful payment
+    
     onPaymentSuccess();
   };
 
