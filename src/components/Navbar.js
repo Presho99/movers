@@ -5,6 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import './Navbar.css';
+import logoImage from '../assets/images/logo.jpeg'; // Adjust the path to your logo image
 
 function Navbar() {
   const { isAuthenticated, userDetails } = useContext(AuthContext);
@@ -12,7 +13,9 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="logo">
-        <Link to="/">YourLogo</Link>
+        <Link to="/">
+          <img src={logoImage} alt="YourLogo" className="logo-image" />
+        </Link>
       </div>
       <ul className="nav-list">
         <li><Link to="/">Home</Link></li>
@@ -21,8 +24,10 @@ function Navbar() {
       </ul>
       {isAuthenticated && (
         <div className="profile-icon">
-          <Link to="/profile">
-            <FontAwesomeIcon icon={faUser} />
+          <Link to="/profile" className='profile-icon'>
+          <div className='user-icon'>
+          <FontAwesomeIcon icon={faUser} />
+          </div>
             <span className="welcome-message">Welcome, {userDetails?.name}</span>
           </Link>
         </div>

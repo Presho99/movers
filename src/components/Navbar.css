@@ -4,14 +4,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 70px;
-     /* Dark blue background */
+    padding: 30px 80px;
+     background-color: #fff;
     color: #39A2A5;
+    margin-bottom: 20px;
+    
   }
   
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
+  /* .logo {
+width: 20px;
+height: 20px;
+  } */
+
+  .logo img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
   }
   
   .logo a {
@@ -39,20 +47,42 @@
   }
   
   .nav-list a:hover {
-    color: #f56626; /* Orange color for hover effect */
+    color: #39A2A5; /* Orange color for hover effect */
   }
   
   .profile-icon {
-    font-size: 20px;
+    /* background-color: #39A2A5; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+
+    
+  }
+
+  .user-icon{
+    background: #032739;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
   }
   
   .profile-icon a {
     color: #39A2A5; /* Teal color for the icon */
     text-decoration: none;
     transition: color 0.3s;
+    font-size: 16px;
   }
   
   .profile-icon a:hover {
     color: #f56626; /* Orange color for hover effect */
   }
   
+  .welcome-message{
+margin-left: 10px;
+color: #032739;
+font-weight: bold;
+  }
