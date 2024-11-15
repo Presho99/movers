@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
-import { BookingContext } from '../context/BookingContext'; // Import BookingContext
+import { BookingContext } from '../context/BookingContext';
 import ReusableButton from '../components/Button';
-import Payment from './Payment'; // Import the Payment component
+import Payment from './Payment';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import one from '../assets/images/one.webp';
-import { ToastContainer, toast } from 'react-toastify'; // Import Toast components
-import 'react-toastify/dist/ReactToastify.css'; // Import Toastify styles
 import './BookMove.css';
 
 function BookMove() {
@@ -14,16 +14,8 @@ function BookMove() {
   const [currentLocation, setCurrentLocation] = useState('');
   const [newLocation, setNewLocation] = useState('');
   const [locations] = useState([
-    'Nairobi',
-    'Mombasa',
-    'Kisumu',
-    'Eldoret',
-    'Nakuru',
-    'Malindi',
-    'Kisii',
-    'Thika',
-    'Meru',
-    'Naivasha',
+    'Nairobi', 'Mombasa', 'Kisumu', 'Eldoret', 'Nakuru',
+    'Malindi', 'Kisii', 'Thika', 'Meru', 'Naivasha'
   ]);
   const [selectedInventory, setSelectedInventory] = useState([]);
   const [quote, setQuote] = useState(null);
@@ -34,32 +26,35 @@ function BookMove() {
   const [currentStep, setCurrentStep] = useState(1);
   const [progress, setProgress] = useState(0);
   const [showModal, setShowModal] = useState(false);
-  const [paymentSuccess, setPaymentSuccess] = useState(false);
 
   const inventoryOptions = ['Bedsitter', 'One Bedroom', 'Studio', 'Two Bedroom'];
 
+  // Handle inventory selection
   const handleInventorySelect = (item) => {
     setSelectedInventory((prev) =>
       prev.includes(item) ? prev.filter((i) => i !== item) : [...prev, item]
     );
   };
 
+  // Calculate quote and show the modal
   const calculateQuote = () => {
     const basePrice = 50;
     const totalPrice = selectedInventory.length * basePrice;
     setQuote(totalPrice);
-    setShowModal(true);
+    setShowModal(true); // Show the modal
   };
 
+  // Fetch available movers
   const fetchMovers = () => {
     const availableMovers = [
       { name: 'Mover 1', price: 100 },
       { name: 'Mover 2', price: 150 },
-      { name: 'Mover 3', price: 120 },
+      { name: 'Mover 3', price: 120 }
     ];
     setMovers(availableMovers);
   };
 
+  // Handle booking and show toast notification
   const handleBooking = () => {
     const bookingData = {
       currentLocation,
@@ -68,42 +63,35 @@ function BookMove() {
       date: bookingDate,
       time: bookingTime,
       price: quote,
-      mover: selectedMover ? selectedMover.name : 'No mover selected',
+      mover: selectedMover ? selectedMover.name : 'No mover selected'
     };
 
     setBookingDetails(bookingData);
     toast.success('Move booked successfully!');
   };
 
+  // Handle step navigation
   const handleNextStep = () => {
-    let stepValid = false;
-
-    // Validate each step
-    switch (currentStep) {
-      case 1: // Step 1: Location Selection
-        stepValid = currentLocation && newLocation;
-        break;
-      case 2: // Step 2: Inventory Selection
-        stepValid = selectedInventory.length > 0;
-        break;
-      case 3: // Step 3: Date and Time
-        stepValid = bookingDate && bookingTime;
-        break;
-      case 4: // Step 4: Mover Selection
-        stepValid = selectedMover !== null;
-        break;
-      case 5: // Step 5: Quote Calculation
-        stepValid = quote !== null;
-        break;
-      default:
-        stepValid = true;
+    if (currentStep === 1 && (!currentLocation || !newLocation)) {
+      toast.error('Please select both current and new locations.');
+      return;
+    }
+    if (currentStep === 2 && selectedInventory.length === 0) {
+      toast.error('Please select at least one inventory item.');
+      return;
+    }
+    if (currentStep === 3 && (!bookingDate || !bookingTime)) {
+      toast.error('Please select a date and time for the move.');
+      return;
+    }
+    if (currentStep === 4 && !selectedMover) {
+      toast.error('Please select a mover.');
+      return;
     }
 
-    if (stepValid) {
+    if (currentStep < 6) {
       setCurrentStep(currentStep + 1);
       setProgress((currentStep / 5) * 100);
-    } else {
-      toast.error('Please complete all required fields before proceeding.');
     }
   };
 
@@ -116,6 +104,8 @@ function BookMove() {
 
   return (
     <div className="book-move">
+      <ToastContainer />
+
       <div className="book-move-card">
         {/* Left Side: Image */}
         <div className="card-image">
@@ -137,7 +127,7 @@ function BookMove() {
                   width: `${progress}%`,
                   height: '5px',
                   backgroundColor: '#f56626',
-                  transition: 'width 0.3s ease-in-out',
+                  transition: 'width 0.3s ease-in-out'
                 }}
               />
             </div>
@@ -178,7 +168,73 @@ function BookMove() {
               </div>
             )}
 
-            {/* Other steps remain the same */}
+            {currentStep === 2 && (
+              <div className="step">
+                <h4>Step 2: Select Your Inventory</h4>
+                {inventoryOptions.map((item) => (
+                  <label key={item} className="invent">
+                    <input
+                      type="checkbox"
+                      checked={selectedInventory.includes(item)}
+                      onChange={() => handleInventorySelect(item)}
+                      className="check-2"
+                    />
+                    {item}
+                  </label>
+                ))}
+              </div>
+            )}
+
+            {currentStep === 3 && (
+              <div className="step">
+                <h4>Step 3: Choose Date and Time</h4>
+                <input
+                  type="date"
+                  value={bookingDate}
+                  onChange={(e) => setBookingDate(e.target.value)}
+                />
+                <input
+                  type="time"
+                  value={bookingTime}
+                  onChange={(e) => setBookingTime(e.target.value)}
+                />
+              </div>
+            )}
+
+            {currentStep === 4 && (
+              <div className="step">
+                <h4>Step 4: Choose a Mover</h4>
+                <div>
+                  {movers.map((mover) => (
+                    <label key={mover.name}>
+                      <input
+                        type="radio"
+                        name="mover"
+                        value={mover.name}
+                        onChange={() => setSelectedMover(mover)}
+                      />
+                      {mover.name} - ${mover.price}
+                    </label>
+                  ))}
+                </div>
+                <ReusableButton onClick={fetchMovers}>Fetch Movers</ReusableButton>
+              </div>
+            )}
+
+            {currentStep === 5 && (
+              <div className="step">
+                <h4>Step 5: Calculate Your Quote</h4>
+                <ReusableButton onClick={calculateQuote}>Get Your Price</ReusableButton>
+                {quote !== null && <p>Estimated Quote: ${quote}</p>}
+              </div>
+            )}
+
+            {currentStep === 6 && (
+              <div className="step">
+                <h4>Step 6: Finalize Your Booking</h4>
+                <ReusableButton onClick={handleBooking}>Book Move</ReusableButton>
+              </div>
+            )}
 
             {/* Step Navigation Buttons */}
             <div className="step-navigation">
@@ -193,8 +249,30 @@ function BookMove() {
         </div>
       </div>
 
-      {/* Toast Container */}
-      <ToastContainer />
+      {/* Payment Modal */}
+      {showModal && (
+        <div className="modal-overlay">
+          <button
+            className="close-icon"
+            onClick={() => setShowModal(false)}
+            aria-label="Close"
+          >
+            &times;
+          </button>
+          <div className="modal-content">
+            <Payment
+              currentLocation={currentLocation}
+              newLocation={newLocation}
+              selectedInventory={selectedInventory}
+              price={quote}
+              onPaymentSuccess={() => {
+                setShowModal(false);
+                toast.success('Payment successful!');
+              }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
