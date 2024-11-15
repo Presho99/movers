@@ -142,7 +142,7 @@
   margin-top: 20px;
 }
 
-.step {
+.how-it-works .step {
   background-color: #032739;
   color: #ffffff;
   border-radius: 10px;
@@ -154,25 +154,25 @@
   position: relative;
 }
 
-.step:hover {
+.how-it-works .step:hover {
   transform: translateY(-10px);
 }
 
-.step-icon {
+.how-it-works .step-icon {
   font-size: 40px;
   color: #032739;
   margin-bottom: 10px;
 }
 
-.step h3 {
+ .how-it-works .step h3 {
   font-size: 18px;
   color: #fff;
   margin-top: 10px;
   margin-bottom: 5px;
 }
 
-.step p {
+.how-it-works .step p {
   font-size: 16px;
-  color: #666;
+  color: #fff;
   line-height: 1.5;
 }
