@@ -27,21 +27,21 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 60%;
     height: 500px;
-    background: red;
+    background-color: #032739;
     color: #fff;
-    margin: 0 auto;
+    /* margin: 0 auto; */
   }
   
-  .card-image {
+  .book-move .card-image {
     /* flex: 1; */
     width: 50%;
     border-radius: 10px;
     height: 100%;
   }
   
-  .card-form-box {
+ .book-move .card-form-box {
 display: flex;
-flex-direction: column;
+/* flex-direction: column; */
  
     width: 50%;
 
@@ -50,26 +50,44 @@ flex-direction: column;
     align-items: center;
   }
 
-  .card-form{
-    background-color: aqua;
+ .book-move .card-form{
+    /* background-color: aqua; */
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
   }
+  .book-move .step {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: chocolate; */
+    
+    
+  }
+
+  .book-move .step h4{
+    width: 250px;
+    /* background-color: red; */
+  }
+
   .loc{
     outline: none;
     border: none;
     padding: 10px;
+    
   }
   
- .book-move .step {
-    margin-bottom: 20px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    
-    
-  }
   
   .progress-bar {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    
   }
   
   .step-navigation {
@@ -77,6 +95,19 @@ flex-direction: column;
     
    
   }  
+
+  .form-btn{
+    margin-right: 5px;
+    margin-left: 5px;
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #39A2A5; 
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+  }
 /* Style for the modal overlay */
 .modal-overlay {
     position: fixed;

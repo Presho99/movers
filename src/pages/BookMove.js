@@ -217,14 +217,14 @@ function BookMove() {
                     </label>
                   ))}
                 </div>
-                <ReusableButton onClick={fetchMovers}>Fetch Movers</ReusableButton>
+                <button onClick={fetchMovers} className='form-btn'>Fetch Movers</button>
               </div>
             )}
 
             {currentStep === 5 && (
               <div className="step">
                 <h4>Step 5: Calculate Your Quote</h4>
-                <ReusableButton onClick={calculateQuote}>Get Your Price</ReusableButton>
+                <button className='form-btn' onClick={calculateQuote}>Get Your Price</button>
                 {quote !== null && <p>Estimated Quote: ${quote}</p>}
               </div>
             )}
@@ -232,17 +232,17 @@ function BookMove() {
             {currentStep === 6 && (
               <div className="step">
                 <h4>Step 6: Finalize Your Booking</h4>
-                <ReusableButton onClick={handleBooking}>Book Move</ReusableButton>
+                <button className='form-btn' onClick={handleBooking}>Book Move</button>
               </div>
             )}
 
             {/* Step Navigation Buttons */}
             <div className="step-navigation">
               {currentStep > 1 && (
-                <ReusableButton onClick={handlePrevStep}>Back</ReusableButton>
+                <button className='form-btn' onClick={handlePrevStep}>Back</button>
               )}
               {currentStep < 6 && (
-                <ReusableButton onClick={handleNextStep}>Next</ReusableButton>
+                <button className='form-btn' onClick={handleNextStep}>Next</button>
               )}
             </div>
           </div>
