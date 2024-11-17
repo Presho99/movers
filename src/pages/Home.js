@@ -1,9 +1,11 @@
-// Home.js
 import React from 'react';
 import './Home.css';
-import two from '../assets/images//two.png'
+import two from '../assets/images/two.png'; // Image path for the hero section
+import money from '../assets/images/money.webp'
+import movers from '../assets/images/movers.webp'
+import time from '../assets/images/time.jpeg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar } from '@fortawesome/free-solid-svg-icons/faCalendar';
+import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { faFile, faMoneyBill, faComment } from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
@@ -21,39 +23,34 @@ const Home = () => {
         </div>
       </header>
 
-{/* How It Works Section */}
-<section className="how-it-works">
-  <h2>How It Works</h2>
-  <div className="steps-container">
-    <div className="step">
-    <FontAwesomeIcon icon={faFile} className=''/>
+      {/* How It Works Section */}
+      <section className="how-it-works">
+        <h2>How It Works</h2>
+        <div className="steps-container">
+          <div className="step">
+            <FontAwesomeIcon icon={faFile} />
+            <h3>Enter Your Details</h3>
+            <p>Specify when, where, and what you need help with.</p>
+          </div>
+          <div className="step">
+            <FontAwesomeIcon icon={faMoneyBill} />
+            <h3>Get Your Price</h3>
+            <p>Select one or two Movers and receive an instant quote.</p>
+          </div>
+          <div className="step">
+            <FontAwesomeIcon icon={faCalendar} />
+            <h3>Book Your Move</h3>
+            <p>Schedule your move in minutes.</p>
+          </div>
+          <div className="step">
+            <FontAwesomeIcon icon={faComment} />
+            <h3>Track and Communicate</h3>
+            <p>Contact your Mover in real-time.</p>
+          </div>
+        </div>
+      </section>
 
-      
-      <h3>Enter Your Details</h3>
-      <p>Specify when, where, and what you need help with.</p>
-    </div>
-    <div className="step">
-    <FontAwesomeIcon icon={faMoneyBill} className=''/>
-
-      <h3>Get Your Price</h3>
-      <p>Select one or two Movers and receive an instant quote.</p>
-    </div>
-    <div className="step">
-      <FontAwesomeIcon icon={faCalendar} className=''/>
-      <h3>Book Your Move</h3>
-      <p>Schedule your move in minutes.</p>
-    </div>
-    <div className="step">
-    <FontAwesomeIcon icon={faComment} className=''/>
-
-      
-      <h3>Track and Communicate</h3>
-      <p>Contact your Mover in real-time.</p>
-    </div>
-  </div>
-</section>
-
-      {/* Inventory Categories */}
+      {/* Inventory Categories Section */}
       <section className="inventory-categories">
         <h2>Inventory Categories</h2>
         <div className="categories-container">
@@ -76,14 +73,29 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
+      {/* Why Choose Us Section with Cards */}
       <section className="why-choose-us">
         <h2>Why Choose Us?</h2>
-        <ul>
-          <li>Instant Quotes</li>
-          <li>Real-Time Tracking</li>
-          <li>Trusted Movers</li>
-        </ul>
+        <div className="cards-container">
+          <div className="card">
+            <img src={money} alt="Instant Quotes" />
+            <div className="card-content">
+              <h3>Instant Quotes</h3>
+            </div>
+          </div>
+          <div className="card">
+            <img src={time} alt="Real-Time Tracking" />
+            <div className="card-content">
+              <h3>Real-Time Tracking</h3>
+            </div>
+          </div>
+          <div className="card">
+            <img src={movers} alt="Trusted Movers" />
+            <div className="card-content">
+              <h3>Trusted Movers</h3>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Call to Action Footer */}
