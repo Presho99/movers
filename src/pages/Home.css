@@ -58,7 +58,7 @@
   }
   
   .cta-button:hover {
-    background-color: #d4501e;
+    background-color: #39A2A5;
   }
   
   .hero-image {
@@ -115,7 +115,7 @@
   }
   
   .book-now-button {
-    background-color: #f56626;
+    background-color: #39A2A5;
     color: white;
     border: none;
     padding: 15px 25px;
@@ -126,7 +126,7 @@
   }
   
   .book-now-button:hover {
-    background-color: #d4501e;
+    background-color: #032739;
   }
   
   /* How It Works Section */

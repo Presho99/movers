@@ -1,9 +1,10 @@
 import React from 'react';
 import './Home.css';
+import { Link } from 'react-router-dom'; // Import Link for navigation
 import two from '../assets/images/two.png'; // Image path for the hero section
-import money from '../assets/images/money.webp'
-import movers from '../assets/images/movers.webp'
-import time from '../assets/images/time.jpeg'
+import money from '../assets/images/money.webp';
+import movers from '../assets/images/movers.webp';
+import time from '../assets/images/time.jpeg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { faFile, faMoneyBill, faComment } from '@fortawesome/free-solid-svg-icons';
@@ -16,7 +17,9 @@ const Home = () => {
         <div className="hero-content">
           <h1>Start your exciting journey with us</h1>
           <p>A team of moving professionals dedicated to providing you with the best moving services</p>
-          <button className="cta-button">Discover More</button>
+          <Link to="/book-move">
+            <button className="cta-button">Discover More</button>
+          </Link>
         </div>
         <div className="hero-image">
           <img src={two} alt="Moving Illustration" />
@@ -100,7 +103,9 @@ const Home = () => {
 
       {/* Call to Action Footer */}
       <footer className="cta-footer">
-        <button className="book-now-button">Book Now</button>
+        <Link to="/book-move">
+          <button className="book-now-button">Book Now</button>
+        </Link>
       </footer>
     </div>
   );
