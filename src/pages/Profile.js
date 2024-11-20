@@ -1,5 +1,5 @@
-// Profile.js
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Profile.css';
 
 function Profile() {
@@ -11,10 +11,16 @@ function Profile() {
     address: 'Nairobi, Kenya',
   };
 
+  const navigate = useNavigate(); // Initialize useNavigate
+
   // Function to handle logout
   const handleLogout = () => {
-    // Implement your logout logic here, e.g., clear auth tokens, redirect to login page
-    console.log('User logged out');
+    // Clear authentication data (e.g., remove tokens, reset context state)
+    localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('userDetails');
+
+    // Redirect to the main page
+    navigate('/');
   };
 
   return (
