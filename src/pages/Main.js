@@ -6,7 +6,7 @@ function Main() {
   const navigate = useNavigate();
 
   const handleUserClick = () => {
-    navigate('/home'); // Redirect to user dashboard
+    navigate('/landing-page'); // Redirect to user dashboard
   };
 
   const handleAdminClick = () => {
