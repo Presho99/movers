@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AdminDashboard.css';
 import Fleet from './Fleet';
+import Revenue from './Revenue';
 
 function AdminDashboard() {
   const [activeSection, setActiveSection] = useState('Booking Requests');
@@ -104,7 +105,7 @@ function AdminDashboard() {
       case 'Fleets':
         return <Fleet />;
       case 'Revenue':
-        return <div>Here is the revenue data.</div>;
+        return <Revenue/>;
       case 'Feedback':
         return <div>Here is the feedback.</div>;
       default:
