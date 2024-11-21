@@ -37,7 +37,7 @@
   }
   
   .settings-button, .support-button, .logout-button {
-    background-color: #f56626;
+    background-color: #39A2A5;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -48,7 +48,7 @@
   }
   
   .settings-button:hover, .support-button:hover, .logout-button:hover {
-    background-color: #d4501e;
+    background-color: #39A2A5;
   }
   
   .logout-button {
