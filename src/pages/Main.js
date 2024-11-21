@@ -1,6 +1,6 @@
-// src/pages/LandingPage.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Main.css'; // Add this import for the styles
 
 function Main() {
   const navigate = useNavigate();
@@ -14,10 +14,18 @@ function Main() {
   };
 
   return (
-    <div className="landing-page">
-      <h1>Welcome! Choose an Option:</h1>
-      <button onClick={handleUserClick}>User</button>
-      <button onClick={handleAdminClick}>Admin</button>
+    <div className="main-page">
+      <div className="main-container">
+        <h1>Welcome! Choose an Option:</h1>
+        <div className="main-button-group">
+          <button className="main-button user-button" onClick={handleUserClick}>
+            User
+          </button>
+          <button className="main-button admin-button" onClick={handleAdminClick}>
+            Admin
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
