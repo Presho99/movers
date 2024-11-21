@@ -31,6 +31,11 @@ function Profile() {
     alert('Password change functionality coming soon!');
   };
 
+  // Function to navigate to the Contact page
+  const navigateToContact = () => {
+    navigate('/contact'); // Navigates to the Contact page
+  };
+
   return (
     <div className="profile-container">
       <h2 className="profile-header">My Profile</h2>
@@ -56,6 +61,14 @@ function Profile() {
                 onChange={(e) => setEditedDetails({ ...editedDetails, email: e.target.value })}
               />
             </p>
+            <p>
+              <strong>Phone:</strong>{' '}
+              <input
+                type="tel"
+                value={editedDetails.phone}
+                onChange={(e) => setEditedDetails({ ...editedDetails, phone: e.target.value })}
+              />
+            </p>
           </div>
         ) : (
           <>
@@ -65,11 +78,11 @@ function Profile() {
             <p>
               <strong>Email:</strong> {userDetails.email}
             </p>
+            <p>
+              <strong>Phone:</strong> {userDetails.phone || '+254 700 123456'} {/* Default Phone */}
+            </p>
           </>
         )}
-        <p>
-          <strong>Phone:</strong> +254 700 123456
-        </p>
         <p>
           <strong>Address:</strong> Nairobi, Kenya
         </p>
@@ -90,7 +103,9 @@ function Profile() {
       <div className="support-section">
         <h3>Support</h3>
         <p>Need help? Contact our support team for assistance.</p>
-        <button className="support-button">Contact Support</button>
+        <button className="support-button" onClick={navigateToContact}>
+          Contact Support
+        </button>
       </div>
 
       {/* Logout Button */}
