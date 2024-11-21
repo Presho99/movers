@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './AdminDashboard.css';
 import Fleet from './Fleet';
 
 function AdminDashboard() {
   const [activeSection, setActiveSection] = useState('Booking Requests');
   const [activeSubsection, setActiveSubsection] = useState('Pending');
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Perform any cleanup or logout logic here
+    navigate('/'); // Redirect to the main page
+  };
 
   const renderSubsectionContent = () => {
     if (activeSection === 'Booking Requests') {
@@ -95,7 +102,7 @@ function AdminDashboard() {
           </div>
         );
       case 'Fleets':
-        return <Fleet/>
+        return <Fleet />;
       case 'Revenue':
         return <div>Here is the revenue data.</div>;
       case 'Feedback':
@@ -147,6 +154,9 @@ function AdminDashboard() {
             Feedback
           </li>
         </ul>
+        <button className="logout-btn" onClick={handleLogout}>
+          Logout
+        </button>
       </div>
       <div className="content">{renderContent()}</div>
     </div>
