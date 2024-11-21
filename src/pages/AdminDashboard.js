@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './AdminDashboard.css';
+import Fleet from './Fleet';
 
 function AdminDashboard() {
   const [activeSection, setActiveSection] = useState('Booking Requests');
@@ -94,7 +95,7 @@ function AdminDashboard() {
           </div>
         );
       case 'Fleets':
-        return <div>Here is the fleet information.</div>;
+        return <Fleet/>
       case 'Revenue':
         return <div>Here is the revenue data.</div>;
       case 'Feedback':
