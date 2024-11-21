@@ -21,6 +21,8 @@ function Navbar() {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/book-move">Book Move</Link></li>
         <li><Link to="/my-bookings">My Bookings</Link></li>
+        <li><Link to="/contact">Contact</Link></li>
+
       </ul>
       {isAuthenticated && (
         <div className="profile-icon">

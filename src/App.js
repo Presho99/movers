@@ -10,6 +10,7 @@ import MyBooking from './pages/MyBookings';
 import Profile from './pages/Profile';
 import AdminLogin from './pages/AdminLogin'; // Import AdminLogin
 import AdminDashboard from './pages/AdminDashboard'; // Import AdminDashboard
+import Contact from './pages/Contact'
 
 function App() {
   const { isAuthenticated } = useContext(AuthContext);
@@ -44,6 +45,13 @@ function App() {
             isAuthenticated ? <MyBooking /> : <Navigate to="/" />
           }
         />
+                <Route
+          path="/contact"
+          element={
+            isAuthenticated ? <Contact /> : <Navigate to="/" />
+          }
+        />
+
         <Route
           path="/profile"
           element={
