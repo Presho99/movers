@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './AdminDashboard.css';
 import Fleet from './Fleet';
 import Revenue from './Revenue';
+import Review from './Review';
 
 function AdminDashboard() {
   const [activeSection, setActiveSection] = useState('Booking Requests');
@@ -107,7 +108,7 @@ function AdminDashboard() {
       case 'Revenue':
         return <Revenue/>;
       case 'Feedback':
-        return <div>Here is the feedback.</div>;
+        return <Review/>;
       default:
         return <div>Welcome to the Admin Dashboard!</div>;
     }
